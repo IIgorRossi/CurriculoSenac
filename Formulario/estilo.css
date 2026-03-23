@@ -1,0 +1,60 @@
+body{
+    /*cor de fundo*/
+    background-color:cornflowerblue;
+    /*foto de fundo*/
+    background-image: url(https://wallpapers.com/images/featured/black-topographic-pbtm4zynr6ggmds3.jpg);
+    background-size: cover;
+    /*alinhamento por flexbox*/
+    display:flex;
+    /*alinha sentido acima, abaixo*/
+    align-items:center;
+    /*alinha sentido esquerda, direita*/
+    justify-content: center;
+
+}
+
+h2{
+    color: aliceblue;
+    text-align: center;
+}
+
+.painel{
+    background-color: rgba(20, 20, 20, 0.807);
+    /*espaçamento interno*/
+    padding: 30px;
+    /*arredondar cantos*/
+    border-radius: 12px;
+    /*largura*/
+    width: 340px;
+    /*sombra*/
+    box-shadow: 10px 10px 10px;
+    
+}
+input, textarea{
+    /*largura dos campos*/
+    width: 100%;
+    /*espaçamento interno*/
+    padding: 10px;
+    /*margem*/
+    margin:7px;
+    /*arredondar*/
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding: 12px;
+    border: none;
+    background-color: cornflowerblue;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin: 7px;
+    transition: 0.4s;
+}
+
+button:hover{
+    color:cornflowerblue;
+    background-color: white;
+}

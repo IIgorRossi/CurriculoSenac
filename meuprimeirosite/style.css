@@ -1,0 +1,151 @@
+/* resetar a pagina para evitar margens indesejadas */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* header com flexbox */
+
+header{
+    background-color:royalblue;
+    color: whitesmoke;
+    padding: 1rem 5%;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+}
+
+nav ul li{
+    margin-left: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+nav ul li a:hover{
+    color:darkblue;
+}
+
+/* section hero (destaque) */
+
+#hero{
+height: 60vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-image: url('/meuprimeirosite/image/foto.jpg');
+text-align: center;
+padding: 20px;
+}
+#hero h1{
+    font-size: 2.5rem;
+    color: whitesmoke;
+}
+
+#hero p{
+    margin-top: 15px;
+    color: white;
+}
+#hero a{
+    padding: 10px 25px;
+    background-color: white;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: darkblue;
+    box-shadow: 2px 2px 7px 5px  ;
+    font-size: 15px;
+    margin-top: 65px;
+}
+/* sobre */
+#sobre{
+    padding: 140px;
+    background-color: whitesmoke;
+    text-align: center;
+    line-height: 1.6;
+}
+
+#sobre h2{
+    font-size: 2rem;
+    color: #2c3e50;
+    position: relative;
+    display: inline-block;
+}
+
+#sobre p{
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.html{
+    color: orangered
+}
+
+.css{
+color: royalblue;
+}
+
+.java{
+ color: goldenrod;
+}
+
+#redes{
+    padding: 60px;
+    background-color: #8ebbff ;
+    text-align: center;
+
+}
+
+#redes h2{
+    font-size: 2rem;
+    color: black ;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 25px; 
+}
+
+.link a{
+    text-decoration: none;
+    padding: 25px;
+    color: #333;
+    position: relative;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 3px;
+  background: royalblue;
+  transition: width 0.3s ease;
+  border-radius: 15px;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* rodape */
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: royalblue;
+    color: whitesmoke;
+}
