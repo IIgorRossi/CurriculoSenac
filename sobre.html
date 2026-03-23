@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilosobre.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sobre</title>
+</head>
+<body>
+   <header>
+            <nav class="menu">
+                <div class="menuicone">&#9776 Menu</div> 
+                <ul>
+                   <li><i class="fa-solid fa-laptop-code fa-2xl" style="color: whitesmoke;"></i></li> 
+                    <li><a href="index.html">Inicio </a></li>
+                    <li><a href="sobre.html">Senac </a></li>
+                </ul>
+            </nav>            
+        </header>
+        <section>
+            <div class="hero">
+                <p><b>Senac</b> – Serviço Nacional de Aprendizagem Comercial</p>
+                <a href="https://www.pr.senac.br/principal/" target="_blank">Saiba Mais...</a>
+            </div>
+            <div id="titulo">
+            <h1>Sobre</h1>
+            </div>
+            <section id="sobre">
+                <div class="textosobre">
+                    <P>O Serviço Nacional de Aprendizagem Comercial (SENAC) é uma das principais instituições de educação profissional do Brasil, reconhecida por oferecer formação de qualidade voltada às demandas do mercado de trabalho. Presente em todo o país, o SENAC atua na capacitação de jovens e adultos por meio de cursos técnicos, livres e de qualificação profissional em diversas áreas, como comércio, tecnologia, saúde, turismo e gestão. Sua atuação contribui diretamente para o desenvolvimento econômico e social, ao preparar profissionais qualificados e incentivar a empregabilidade.</P>
+                    <br>
+                    <p>A forma de educação adotada pelo SENAC é baseada em uma metodologia prática e atualizada, que busca aproximar o aprendizado das situações reais do mercado. Os cursos combinam teoria e prática em ambientes que simulam o contexto profissional, permitindo que os estudantes desenvolvam habilidades técnicas, pensamento crítico e capacidade de resolução de problemas. Além disso, a instituição investe constantemente na atualização de seus currículos e na formação de seus docentes, garantindo que o ensino acompanhe as transformações do mundo do trabalho.</p>
+                    <br>
+                    <p>Outro aspecto importante da educação no SENAC é o foco no desenvolvimento integral do aluno. A instituição incentiva não apenas o domínio técnico, mas também competências socioemocionais, como trabalho em equipe, comunicação, ética e responsabilidade profissional. Dessa forma, o SENAC busca formar profissionais preparados para atuar com competência, autonomia e compromisso em diferentes contextos profissionais e sociais.</p>
+                </div>
+                <div class="imglogo">
+                    <img src="image/logo.png">
+                </div>
+            </section>
+        </section>
+           <footer>
+            <p>Criado por <b> Igor Augusto Rossi</b> (2026)</p>
+        </footer>
+    </body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init(); </script>
+    <script>
+        var botao = document.querySelector('.menuicone');
+        var listamenu = document.querySelector('.menu ul');
+
+        botao.addEventListener('click', function(){
+            listamenu.classList.toggle('mostrarmenu')
+        });
+    </script>
+</html>
