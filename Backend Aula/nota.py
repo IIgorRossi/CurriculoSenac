@@ -19,7 +19,9 @@ media = total / 4
 #     print("======================")
 #     print(media)
 
-if(media >= 90):
+if(media >= 100):
+    print("=== Fala dele 😎 ===")    
+elif(media >= 90):
     print("=== Parabéns, Você foi execelente! XD ===")
 elif(media >= 80):
     print("=== Sua nota foi muito boa! ===")
