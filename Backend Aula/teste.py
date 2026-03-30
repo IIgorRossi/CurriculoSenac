@@ -1,4 +1,4 @@
-print("Hello Word")
+# print("Hello Word")
 
 nome = input("Insira seu nome: ")
 alcool = float(input("Digite Valor do Alcool:"))
