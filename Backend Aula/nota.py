@@ -5,7 +5,7 @@ nota2 = int(input("Nota 2° Bimestre ===>  "))
 nota3 = int(input("Nota 3° Bimestre ===>  "))
 nota4 = int(input("Nota 4° Bimestre ===>  "))
 
-total = nota1+nota2+nota3+nota4
+total = (nota1 + nota2 + nota3 + nota4)
 media = total / 4
 
 # if(media >= 60):
