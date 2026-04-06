@@ -21,6 +21,7 @@ def sortear():
     qtdSortudos = int(input("Quantos Ganhadores? "))
     sortudos = []  
     while qtdSortudos != len(sortudos):
+        sorteado = random.choice(nomes)
         if(sorteado in sortudos):
             sorteado = random.choice(nomes)
         else:
