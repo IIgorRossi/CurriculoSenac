@@ -28,11 +28,9 @@ def evento_aleatorio():
     if escolha == escolha_indesejada:
         print("Você errou!! PC Desligando 💣 💻 )")
         abrir_navegador()
-        desligar()
+        # desligar()
 
     else:
         print("Você está seguro, por enquanto :p ")
-
-
 
 evento_aleatorio()
