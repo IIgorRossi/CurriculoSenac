@@ -1,0 +1,25 @@
+.painel{
+    width: 800px;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 800px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 2px 2px 10px black;
+    background-color: lightgreen;
+    font-size: 35px;
+    
+}
+
+.jogo{
+    margin: 10px auto;
+    border-collapse: collapse;
+    background-color: whitesmoke;
+}
+
+.quadrado{
+    width: 200px;
+    height: 200px;
+    font-size: 150px;
+    text-align: center;
+}
