@@ -1,3 +1,8 @@
+<?php
+  include './backend/conexao.php';
+  include './backend/validacao.php';
+?>
+
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -52,7 +57,8 @@
         <div class="row">
             <div class="col-md-2 bg-dark">
                 <aside id="sidebar" class="sidebar p-3 text-white bg-dark">
-                    <h4> Meu painel </h4>
+                    <h4> Seu painel </h4>
+                    <h5>Bem-Vindo(a) <?php echo $_SESSION['usuario']?></h5>
                     <ul class="nav flex-column">
 
                         <li class="nav-item"> 
@@ -103,25 +109,22 @@
                     <th scope="col">Opções </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody> 
+                  <?php 
+                    $sql = 'SELECT * FROM usuario';
+                    $dados = mysqli_query($conexao, $sql);
+                    while($coluna = mysqli_fetch_assoc($dados)){
+
+                    
+                  ?>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Osnir</td>
-                    <td>osnir@gmail.com</td>
+                    <th scope="row"><?php echo $coluna['id']?></th>
+                    <td><?php echo $coluna['nome']?></td>
+                    <td><?php echo $coluna['email']?></td>
                     <td><a href=""> <i class="fa-regular fa-pen-to-square"></i></a> <a href=""><i class="fa-regular fa-trash-can" style="color: rgb(220, 53, 69);"></i></a></td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Igor</td>
-                    <td>igor@gmail.com</td>
-                    <td><a href=""> <i class="fa-regular fa-pen-to-square"></i></a> <a href=""><i class="fa-regular fa-trash-can" style="color: rgb(220, 53, 69);"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Pedro</td>
-                    <td>pedro@gmail.com</td>
-                    <td><a href=""> <i class="fa-regular fa-pen-to-square"></i></a> <a href=""> <i class="fa-regular fa-trash-can" style="color: rgb(220, 53, 69);"></i></a></td>
-                  </tr>
+                  <?php } ?>
+
                 </tbody>
               </table>
             </div>
