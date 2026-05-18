@@ -76,22 +76,22 @@
             <div class="col-md-5"> 
               <br>
               <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro </h3>
-                <form class="p-2">
+                <form action="./backend/usuario/inserir.php" method="post" class="p-3">
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-address-card"></i> Nome</label>
-                      <input type="text" class="form-control">
+                      <input type="text" name="nome" class="form-control">
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-regular fa-envelope"></i> Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" name="email" class="form-control">
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-regular fa-id-card"></i> CPF </label>
-                      <input type="text" class="form-control">
+                      <input type="text" name="cpf" class="form-control">
                   </div>
                   <div class="mb-3">
                       <label  class="form-label"><i class="fa-solid fa-key"></i> Senha</label>
-                      <input type="password" class="form-control">
+                      <input type="password" name="senha" class="form-control">
                   </div>
                   <button type="submit" class="btn btn-primary"><i class="fa-regular fa-floppy-disk"></i> Cadastrar</button>
                   <button type="reset" class="btn btn-outline-danger"><i class="fa-regular fa-trash-can"></i> Limpar</button>
@@ -114,14 +114,15 @@
                     $sql = 'SELECT * FROM usuario';
                     $dados = mysqli_query($conexao, $sql);
                     while($coluna = mysqli_fetch_assoc($dados)){
-
-                    
                   ?>
                   <tr>
                     <th scope="row"><?php echo $coluna['id']?></th>
                     <td><?php echo $coluna['nome']?></td>
                     <td><?php echo $coluna['email']?></td>
-                    <td><a href=""> <i class="fa-regular fa-pen-to-square"></i></a> <a href=""><i class="fa-regular fa-trash-can" style="color: rgb(220, 53, 69);"></i></a></td>
+                    <td>
+                      <a href=""> <i class="fa-regular fa-pen-to-square"></i></a> 
+                      <a href="<?php echo './backend/usuario/excluir.php?id='.$coluna['id'] ?>" onclick="return confirm('Deseja realmente excluir?')"><i class="fa-regular fa-trash-can" style="color: rgb(220, 53, 69);"></i></a>
+                  </td>
                   </tr>
                   <?php } ?>
 
