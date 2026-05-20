@@ -26,3 +26,26 @@ DELETE FROM usuario WHERE id = 2;
 SELECT * FROM usuario;
 SELECT nome,salario FROM usuario WHERE salario > 4000
 
+CREATE TABLE mercado(
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(120) NOT NULL,
+    cnpj VARCHAR(20) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    senha VARCHAR(120) NOT NULL,
+    endereco VARCHAR(200) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    foto VARCHAR(255) NOT NULL,
+    mapa VARCHAR(20)
+);
+
+INSERT INTO mercado(nome, cnpj, email, senha, endereco, telefone, foto, mapa) VALUES ("Gugão Atacado e Varejo","02.163.753/0006-58","gugao@gmail.com","123","Avenida Antônio Ormeneze, 70","(44) 9996-2547","1","1");
+
+CREATE TABLE produto(
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(120) NOT NULL,
+    preco DECIMAL(10,2),
+    imagem VARCHAR(255) NOT NULL,
+    disponibilidade VARCHAR(30) NOT NULL,
+    mercado_id INT NOT NULL
+    FOREIGN KEY mercado.id REFERENCES produto.mercado_id;
+);
