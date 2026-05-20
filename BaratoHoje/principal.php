@@ -130,10 +130,7 @@
               </table>
             </div>
         </div>
-
    </div>
-   
-
    <script>
         function abrirmenu(){
             document.getElementById('sidebar').classList.toggle('show');
