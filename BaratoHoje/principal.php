@@ -1,6 +1,16 @@
 <?php
   include './backend/conexao.php';
   include './backend/validacao.php';
+
+  $destino = './backend/usuario/inserir.php';
+
+  if(!empty($_GET['id'])){
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM usuario Where id='$id'";
+    $dados = mysqli_query($conexao, $sql);
+    $usuarios = mysqli_fetch_assoc($dados);
+    $destino = "./backend/usuario/alterar.php"
+    }
 ?>
 
 <!doctype html>
