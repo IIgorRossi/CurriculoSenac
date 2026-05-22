@@ -49,3 +49,5 @@ CREATE TABLE produto(
     mercado_id INT NOT NULL
     FOREIGN KEY mercado.id REFERENCES produto.mercado_id;
 );
+
+INSERT INTO produto(nome, preco, imagem, disponibilidade, mercado_id) VALUES ("Detergente YPE", 2,"imagem", "ativo",1)
