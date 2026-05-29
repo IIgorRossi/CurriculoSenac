@@ -92,7 +92,7 @@
                   </div>
                    <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-image"></i> Foto</label>
-                      <input value="<?php echo isset($mercados) ? $mercados['foto'] : "" ?>" type="text" name="foto" class="form-control" >    
+                      <input value="<?php echo isset($mercados) ? $mercados['foto'] : "" ?>" type="file" name="foto" class="form-control" >    
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-address-card"></i> Nome</label>
