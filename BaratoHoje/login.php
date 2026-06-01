@@ -17,8 +17,8 @@
     <div class="row justify-content-center align-items-center vh-100 painel">
         <div class="col-12 col-sm-10 col-md-6 col-lg-4 card shadow p-4 telalogin animate__animated animate__zoomIn">
             <div class="text-center">
-                <i class="fa-solid fa-circle-user fa-2xl" style="color: rgb(116, 192, 252); font-size: 80px; margin-top: 50px;"></i>
-                <h3 class="m-4"> Login Administrativo </h3>
+                <i class="fa-solid fa-circle-user fa-2xl" style="color: #330672; font-size: 80px; margin-top: 50px;"></i>
+                <h3 class="m-4" style="color:#330672;"> Login Administrativo </h3>
             </div>
             <form action="./backend/logar.php" method="post">
                 <div class="mb-3">

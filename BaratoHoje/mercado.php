@@ -26,62 +26,13 @@
   </head>
   <body>
 
-   <nav class="navbar navbar-expand-lg corbarra">
-  <div class="container-fluid">
-    
+     <?php
+  include './fragments/menu_superior.php'
+  ?>
 
-    <button onclick="abrirmenu()" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#" > <img id="logo" src="./assets/imgs/logo.png" alt=""> </a>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 " id="lista"> 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Público</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      
-      </ul>
-     
-    </div>
-  </div>
-</nav>
-<div id="escurecer" class="escurecer" onclick="abrirmenu()"></div>
-    
-   <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 bg-dark">
-                <aside id="sidebar" class="sidebar p-3 text-white bg-dark">
-                    <h4> Seu painel </h4>
-                    <h5>Bem-Vindo(a) <?php echo $_SESSION['usuario']?></h5>
-                    <ul class="nav flex-column">
-
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="./principal.php"><i class="fa-solid fa-users"></i> Usuários</a>
-                        </li>
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="./mercado.php"><i class="fa-solid fa-shop"></i> Mercados</a>
-                        </li>
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="./produto.php"><i class="fa-solid fa-basket-shopping"></i> Produtos</a>
-                        </li>
-                    </ul>
-                </aside>
-            </div>
+  <?php
+  include './fragments/menu_lateral.php'
+  ?>
             <div class="col-md-5"> 
               <br>
               <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro </h3>

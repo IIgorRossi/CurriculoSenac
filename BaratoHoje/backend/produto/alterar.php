@@ -12,6 +12,7 @@
         SET 
             nome='$nome',
             preco='$preco', 
+            disponibilidade = '$disponibilidade',
             imagem='$imagem',
             mercado_id='$mercado'
         WHERE id='$id'";
