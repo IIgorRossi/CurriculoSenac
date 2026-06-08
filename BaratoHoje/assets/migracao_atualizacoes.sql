@@ -1,0 +1,43 @@
+ALTER TABLE mercado
+  MODIFY foto VARCHAR(255) NULL,
+  MODIFY mapa TEXT NULL,
+  MODIFY senha VARCHAR(120) NOT NULL,
+  MODIFY email VARCHAR(120) NOT NULL,
+  MODIFY telefone VARCHAR(20) NOT NULL,
+  MODIFY cnpj VARCHAR(20) NOT NULL;
+
+ALTER TABLE produto
+  MODIFY imagem VARCHAR(255) NULL,
+  MODIFY preco DECIMAL(10,2) NULL;
+
+CREATE TABLE IF NOT EXISTS receita (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  nome VARCHAR(120) NOT NULL,
+  foto VARCHAR(255) NULL,
+  descricao TEXT NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS produto_receita (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  produto_id INT NOT NULL,
+  receita_id INT NOT NULL,
+  UNIQUE KEY uq_produto_receita (produto_id, receita_id),
+  CONSTRAINT fk_produto_receita_produto
+    FOREIGN KEY (produto_id) REFERENCES produto(id)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_produto_receita_receita
+    FOREIGN KEY (receita_id) REFERENCES receita(id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS site_visita (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  pagina VARCHAR(80) NOT NULL UNIQUE,
+  visualizacoes INT NOT NULL DEFAULT 0,
+  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO site_visita(pagina, visualizacoes)
+VALUES ('index', 0)
+ON DUPLICATE KEY UPDATE pagina = pagina;

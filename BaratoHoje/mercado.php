@@ -1,6 +1,10 @@
 <?php
   include './backend/conexao.php';
   include './backend/validacao.php';
+  if(($_SESSION['tipo'] ?? 'admin') != 'admin'){
+    header('Location:produto.php');
+    exit;
+  }
 
   $destino = './backend/mercado/inserir.php';
 
@@ -36,14 +40,15 @@
             <div class="col-md-5"> 
               <br>
               <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro </h3>
-                <form action="<?=$destino ?>" method="post" class="p-3">
+                <form action="<?=$destino ?>" method="post" enctype="multipart/form-data" class="p-3">
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-address-card"></i> ID</label>
                       <input value="<?php echo isset($mercados) ? $mercados['id'] : "" ?>" type="text" name="id" class="form-control" readonly>    
                   </div>
                    <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-image"></i> Foto</label>
-                      <input value="<?php echo isset($mercados) ? $mercados['foto'] : "" ?>" type="file" name="foto" class="form-control" >    
+                      <input type="file" name="foto" class="form-control" accept="image/*" >
+                      <input type="hidden" name="foto_atual" value="<?php echo isset($mercados) ? $mercados['foto'] : "" ?>">
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-address-card"></i> Nome</label>
@@ -59,11 +64,11 @@
                   </div>
                    <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-phone"></i> Telefone </label>
-                      <input value="<?php echo isset($mercados) ? $mercados['telefone'] : "" ?>" type="text" name="telefone" class="form-control">    
+                      <input value="<?php echo isset($mercados) ? $mercados['telefone'] : "" ?>" type="text" name="telefone" class="form-control mascara-telefone">    
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-address-card"></i> CNPJ </label>
-                      <input value="<?php echo isset($mercados) ? $mercados['cnpj'] : "" ?>" type="text" name="cnpj" class="form-control">
+                      <input value="<?php echo isset($mercados) ? $mercados['cnpj'] : "" ?>" type="text" name="cnpj" class="form-control mascara-cnpj">
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-solid fa-map"></i> Mapa</label>

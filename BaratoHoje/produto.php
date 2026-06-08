@@ -10,10 +10,15 @@
   //Se for diferente de vazio o id
   if(!empty($_GET['id'])){
     $id = $_GET['id'];
-    $sql = "SELECT * FROM produto WHERE id='$id' ";
+    $filtroMercado = (($_SESSION['tipo'] ?? 'admin') == 'mercado') ? " AND mercado_id='".$_SESSION['mercado_id']."'" : '';
+    $sql = "SELECT * FROM produto WHERE id='$id' $filtroMercado";
     //executar sql
     $dados = mysqli_query($conexao, $sql);
     $produtos = mysqli_fetch_assoc($dados);
+    if(!$produtos){
+      header('Location:produto.php');
+      exit;
+    }
     //destino será alterado, para o caminho do alterar
     $destino = "./backend/produto/alterar.php";
   }
@@ -41,7 +46,7 @@
   include './fragments/menu_lateral.php'
   ?>
             <div class="col-md-5">
-              <form action="<?=$destino?>" method="post" class="p-3">
+              <form action="<?=$destino?>" method="post" enctype="multipart/form-data" class="p-3">
                 <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro </h3>
                  <div class="mb-3">
                     <label class="form-label"> id </label>
@@ -53,22 +58,28 @@
                 </div>
                  <div class="mb-3">
                     <label class="form-label"> Preço </label>
-                    <input value="<?php echo isset($produtos) ? $produtos['preco'] : "" ?>" type="text" name="preco" class="form-control">
+                    <input value="<?php echo isset($produtos) ? $produtos['preco'] : "" ?>" type="text" name="preco" class="form-control mascara-preco">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Dispobilidade </label>
-                    <select class="form-select" name="disponibilidade"><option value="selecione">Selecione...</option>
+                    <?php $disponibilidadeSelecionada = $produtos['disponibilidade'] ?? 'ativo'; ?>
+                    <select class="form-select" name="disponibilidade">
                     <option value="ativo">🟢Ativo</option>                  
                     <option value="inativo">🔴Inativo</option>                  
                   </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Imagem </label>
-                    <input value="<?php echo isset($produtos) ? $produtos['imagem'] : "" ?>" type="file" name="imagem" class="form-control">
+                    <input type="file" name="imagem" class="form-control" accept="image/*">
+                    <input type="hidden" name="imagem_atual" value="<?php echo isset($produtos) ? $produtos['imagem'] : "" ?>">
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label"> Mercado </label>
+                  <?php if(($_SESSION['tipo'] ?? 'admin') == 'mercado'){ ?>
+                    <input type="hidden" name="mercado" value="<?=$_SESSION['mercado_id']?>">
+                    <input type="text" class="form-control" value="<?=$_SESSION['usuario']?>" readonly>
+                  <?php }else{ ?>
                     <select name="mercado" class="form-select">
                       <?php
                         $busca = mysqli_query($conexao, "SELECT * FROM mercado");
@@ -83,6 +94,27 @@
 
                       <?php } ?>
                     </select>
+                  <?php } ?>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label"> Receitas vinculadas </label>
+                  <select name="receitas[]" class="form-select" multiple size="5">
+                    <?php
+                      $receitasSelecionadas = [];
+                      if(isset($produtos)){
+                        $buscaVinculos = mysqli_query($conexao, "SELECT receita_id FROM produto_receita WHERE produto_id=".$produtos['id']);
+                        while($vinculo = mysqli_fetch_assoc($buscaVinculos)){
+                          $receitasSelecionadas[] = $vinculo['receita_id'];
+                        }
+                      }
+                      $buscaReceitas = mysqli_query($conexao, "SELECT * FROM receita ORDER BY nome");
+                      while($receita = mysqli_fetch_assoc($buscaReceitas)){
+                        $selected = in_array($receita['id'], $receitasSelecionadas) ? 'selected' : '';
+                    ?>
+                      <option value="<?=$receita['id']?>" <?=$selected?>><?=$receita['nome']?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                
                 <button type="submit" class="btn btn-primary"> Cadastrar </button>
@@ -100,12 +132,16 @@
                   <th scope="col">Preço</th>
                   <th scope="col">Disponibilidade</th>
                   <th scope="col">Mercado</th>
+                  <th scope="col">Receitas</th>
                   <th scope="col">Opções</th>
                 </tr>
               </thead>
               <tbody>
                 <?php 
                   $sql = 'SELECT * FROM produto';
+                  if(($_SESSION['tipo'] ?? 'admin') == 'mercado'){
+                    $sql .= " WHERE mercado_id='".$_SESSION['mercado_id']."'";
+                  }
                   $dados = mysqli_query($conexao, $sql);
                   //percoorer todos os registros banco
                   while($coluna = mysqli_fetch_assoc($dados)){
@@ -123,6 +159,18 @@
                   echo " - ";
                   echo $mercado['nome'];
                   ?>
+                  </td>
+                  <td>
+                    <?php
+                      $buscaReceitasProduto = mysqli_query($conexao, "SELECT receita.nome FROM receita INNER JOIN produto_receita ON receita.id = produto_receita.receita_id WHERE produto_receita.produto_id=".$coluna['id']." ORDER BY receita.nome");
+                      $nomesReceitas = [];
+                      if($buscaReceitasProduto){
+                        while($receitaProduto = mysqli_fetch_assoc($buscaReceitasProduto)){
+                          $nomesReceitas[] = $receitaProduto['nome'];
+                        }
+                      }
+                      echo count($nomesReceitas) > 0 ? implode(', ', $nomesReceitas) : 'Sem receitas';
+                    ?>
                   </td>
                   <td>
                     <a href="./produto.php?id=<?=$coluna['id']?>"><i class="fa-regular fa-pen-to-square"></i></a> 

@@ -1,6 +1,10 @@
 <?php
   include './backend/conexao.php';
   include './backend/validacao.php';
+  if(($_SESSION['tipo'] ?? 'admin') != 'admin'){
+    header('Location:produto.php');
+    exit;
+  }
 
   $destino = './backend/usuario/inserir.php';
 
@@ -53,7 +57,7 @@
                   </div>
                   <div class="mb-3">
                       <label class="form-label"><i class="fa-regular fa-id-card"></i> CPF </label>
-                      <input value="<?php echo isset($usuarios) ? $usuarios['cpf'] : "" ?>" type="text" name="cpf" class="form-control">
+                      <input value="<?php echo isset($usuarios) ? $usuarios['cpf'] : "" ?>" type="text" name="cpf" class="form-control mascara-cpf">
                   </div>
                   <div class="mb-3">
                       <label  class="form-label"><i class="fa-solid fa-key"></i> Senha</label>

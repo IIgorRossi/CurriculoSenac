@@ -13,12 +13,15 @@
   />
 </head>
 <body class="corpologin">
+    <a href="index.php" class="btn btn-light shadow-sm position-fixed top-0 end-0 m-3" style="z-index: 2; color:#330672;">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para o site
+    </a>
 
     <div class="row justify-content-center align-items-center vh-100 painel">
         <div class="col-12 col-sm-10 col-md-6 col-lg-4 card shadow p-4 telalogin animate__animated animate__zoomIn">
             <div class="text-center">
                 <i class="fa-solid fa-circle-user fa-2xl" style="color: #330672; font-size: 80px; margin-top: 50px;"></i>
-                <h3 class="m-4" style="color:#330672;"> Login Administrativo </h3>
+                <h3 class="m-4" style="color:#330672;"> Login Administrativo ou Mercado </h3>
             </div>
             <form action="./backend/logar.php" method="post">
                 <div class="mb-3">

@@ -3,17 +3,43 @@
   font-weight: 400;
   font-style: normal;
 }
-.fundoamarelo{
- background-color: #f5c63a !important;
- color: #330672 !important;
+body{
+  background: #fafafa;
+  color: #26153e;
 }
-a{
+.fundoamarelo{
+ background: rgba(245, 198, 58, .96) !important;
+ color: #330672 !important;
+ box-shadow: 0 12px 32px rgba(51, 6, 114, 0.16);
+ backdrop-filter: blur(10px);
+ position: sticky !important;
+ top: 0;
+ z-index: 50;
+ min-height: 72px;
+}
+
+.navbar-brand{
+  font-weight: 800 !important;
+  letter-spacing: 0;
+}
+
+.navbar .nav-link{
+  font-weight: 700;
+  border-radius: 999px;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
+.navbar .nav-link:hover{
+  background: rgba(51, 6, 114, .09);
+}
+nav a{
     position: relative;
     text-decoration: none;
     color: #330672 !important;
 }
 
-a::after {
+nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -24,6 +50,162 @@ a::after {
   transition: width 0.3s ease;
 }
 
-a:hover::after {
+nav a:hover::after {
   width: 100%;
+}
+
+.hero-copy{
+  background: #330672;
+  border-bottom: 4px solid #f5c63a;
+  margin: -1px 0 0;
+}
+
+.hero-copy p{
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 56px 20px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.social-proof{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px auto 10px;
+}
+
+.proof-item{
+  background: #fff;
+  border: 1px solid rgba(51, 6, 114, 0.08);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 14px 34px rgba(51, 6, 114, 0.08);
+}
+
+.proof-number{
+  display: block;
+  color: #330672;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.market-card,
+.product-card{
+  width: 100%;
+  border: 0 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(51, 6, 114, 0.12);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.market-card:hover,
+.product-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 24px 52px rgba(51, 6, 114, 0.18);
+}
+
+.card-img-fixed{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f3edf9;
+}
+
+.btn-roxo{
+  background: #330672 !important;
+  border-color: #330672 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.btn-whats{
+  background: #1f9d55 !important;
+  border-color: #1f9d55 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.mercado-banner{
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: end;
+}
+
+.mercado-banner::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(51,6,114,.08), rgba(51,6,114,.78));
+}
+
+.mercado-banner-content{
+  position: relative;
+  color: #fff;
+  padding: 56px 0;
+}
+
+.info-strip{
+  background: #fff;
+  border-bottom: 4px solid #f5c63a;
+  box-shadow: 0 12px 28px rgba(51, 6, 114, 0.08);
+}
+
+.map-box{
+  min-height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f7f2fc;
+}
+
+.recipe-list{
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(51, 6, 114, .12);
+}
+
+.recipe-title{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #330672;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.recipe-item{
+  background: #f8f4fd;
+  border: 1px solid rgba(51, 6, 114, .08);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.recipe-list img{
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.site-footer{
+  margin-top: 56px;
+  background: #330672;
+  color: #fff;
+  border-top: 4px solid #f5c63a;
+  padding: 28px 0;
+}
+
+@media(max-width: 767.98px){
+  .social-proof{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy p{
+    padding: 36px 18px;
+    font-size: 17px;
+  }
 }

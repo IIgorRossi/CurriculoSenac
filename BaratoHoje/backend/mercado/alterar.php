@@ -1,8 +1,10 @@
 <?php
     include '../conexao.php';
+    include '../upload.php';
 
     $id       = $_REQUEST['id'];
-    $foto     = $_REQUEST['foto'];
+    $fotoAtual = $_REQUEST['foto_atual'] ?? '';
+    $foto     = salvarUpload('foto', $fotoAtual);
     $nome     = $_REQUEST['nome'];
     $email    = $_REQUEST['email'];
     $endereco = $_REQUEST['endereco'];
