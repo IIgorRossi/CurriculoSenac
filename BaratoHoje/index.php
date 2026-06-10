@@ -31,11 +31,10 @@ $visualizacoes = $dadosVisita ? (mysqli_fetch_assoc($dadosVisita)['visualizacoes
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#mercados"><i class="fa-solid fa-shop"></i> Mercados</a></li>
-        <li class="nav-item"><a class="nav-link" href="#mercados"><i class="fa-solid fa-tags"></i> Produtos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#mercados"><i class="fa-solid fa-utensils"></i> Receitas</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#mercados"><i class="fa-solid fa-shop"></i> Mercados</a></li>
       </ul>
-      <a class="btn btn-roxo" href="login.php"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a class="btn btn-roxo navbar-login" href="login.php"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
     </div>
   </div>
 </nav>
